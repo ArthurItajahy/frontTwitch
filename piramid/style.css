@@ -1,65 +1,77 @@
-body, html{
-    height: 100%;
+*
+{
+
+    padding: 0;
     margin: 0;
+    box-sizing: border-box;
+
+
+}
+
+body {
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: rgb(0, 0, 0);
+    justify-content: center;
+    height: 100vh;
+    background-color: #000000;
 }
-.cube {
-    width: 200px;
-    height: 200px;
+
+.pyramid-body
+{
+
     position: relative;
+    width: 300px;
+    height: 300px;
     transform-style: preserve-3d;
-    animation: rotate 5s infinite linear;
+    transform: rotateX(-20deg) rotateY(30deg);
+    animation: rotate 6s linear infinite;
+
 }
 
-.face {
+.pyramid
+{
     position: absolute;
-    width: 200px;
-    height: 200px;
-    background-color: rgba(202, 3, 3, 0.8);
-    border: 1px solid #ffffff;
-    text-align: center;
-    line-height: 200px;
-    color: #ffffff;
-    font-size: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
 }
 
-.front {
-    transform: translateZ(100px);
+.side {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f80000;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    transform-origin: bottom;
+    transform: rotateY(calc(90deg*var(--i))) translateZ(149.7px)
+        rotateX(30deg);
 }
 
-.back {
-    transform: rotateY(180deg) translateZ(100px);
+.side:nth-child(even){
+    background-color: #f31c00;
+    animation: sideeven 3s 1s infinite;
 }
 
-.top {
-    transform: rotateX(90deg) translateZ(100px);
+.side:nth-child(odd){
+    background-color: #690c00;
+    animation: sideodd 3s 1s infinite;
 }
 
-.bottom {
-    transform: rotateX(-90deg) translateZ(100px);
-}
+@keyframes rotate{
 
-.left {
-    transform: rotateY(-90deg) translateZ(100px);
-}
-
-.right {
-    transform: rotateY(90deg) translateZ(100px);
-}
-
-@keyframes rotate {
-    from {
-        transform: rotateY(0deg);
+    0%
+    {
+        transform: rotateX(-20deg) rotateY(30deg);
     }
-    to {
-        transform: rotateY(360deg);
+    0%
+    {
+        transform: rotateX(-20deg) rotateY(360deg);
     }
 
- 
 }
-
-
 
