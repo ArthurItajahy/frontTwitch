@@ -1,22 +1,63 @@
- /* Add your CSS styles here */
- body {
-    font-family: Arial, sans-serif;
+body, html{
+    height: 100%;
     margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 5s infinite linear;
 }
-h1 {
-    color: #333;
+
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(202, 3, 3, 0.8);
+    border: 1px solid #ffffff;
+    text-align: center;
+    line-height: 200px;
+    font-size: 20px;
 }
-p {
-    color: #666;
-    line-height: 1.6;
+
+.front {
+    transform: translateZ(100px);
 }
+
+.back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+
+ 
+}
+
+
+
